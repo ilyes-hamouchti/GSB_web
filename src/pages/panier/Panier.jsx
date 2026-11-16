@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import './Panier.css';
 import Header from '../../components/Header.jsx';
@@ -12,9 +12,17 @@ const prixFormatte = new Intl.NumberFormat('fr-FR', {
 });
 
 function Panier() {
-    const { items, modifierQuantite, supprimerProduit, viderPanier } = useCart();
+    const { items, modifierQuantite, supprimerProduit, viderPanier, passerCommande } = useCart();
+    const navigate = useNavigate();
     const totalHT = items.reduce((total, item) => total + item.prixHT * item.quantite, 0);
     const totalTTC = totalHT * (1 + TVA);
+
+    function confirmerCommande() {
+        const commande = passerCommande();
+        if (commande) {
+            navigate(`/commandes?commande=${encodeURIComponent(commande.id)}`);
+        }
+    }
 
     return (
         <>
@@ -84,8 +92,15 @@ function Panier() {
                             <p><span>TVA (2,1 %)</span><strong>{prixFormatte.format(totalTTC - totalHT)}</strong></p>
                             <p className="cart-summary__total"><span>Total TTC</span><strong>{prixFormatte.format(totalTTC)}</strong></p>
                             <p className="cart-summary__notice">
-                                Démonstration : la validation de commande n’est pas disponible.
+                                Démonstration : aucune commande réelle ne sera envoyée.
                             </p>
+                            <button
+                                className="cart-summary__submit"
+                                type="button"
+                                onClick={confirmerCommande}
+                            >
+                                Confirmer la commande (démo)
+                            </button>
                         </section>
                     </>
                 )}

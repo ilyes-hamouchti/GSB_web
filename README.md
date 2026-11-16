@@ -18,9 +18,10 @@ Les scripts `npm run lint` et `npm run build` permettent respectivement de lance
 - Parcourir, rechercher, filtrer, trier et paginer le catalogue local.
 - Consulter la fiche d'un produit et ajuster la quantité.
 - Ajouter et retirer des produits du panier, modifier les quantités et consulter les totaux HT/TTC.
+- Créer des commandes de démonstration depuis le panier, consulter l'historique local et recommander les mêmes articles.
 - Accéder à une page de connexion de démonstration.
 
-Le catalogue et le panier sont gérés côté navigateur. Le panier est conservé pendant la navigation, mais n'est pas enregistré après le rechargement de la page. Aucun service d'authentification, de paiement ou de commande n'est connecté : les données affichées sont fictives et la maquette ne permet pas de passer une commande réelle.
+Le catalogue et le panier sont gérés côté navigateur. Le panier est conservé pendant la navigation, mais n'est pas enregistré après le rechargement de la page. L'historique des commandes de démonstration est conservé dans le stockage local du navigateur. Aucun service d'authentification, de paiement ou de commande n'est connecté : les données affichées sont fictives et aucune commande réelle n'est envoyée.
 
 ## Publication
 
