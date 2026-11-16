@@ -1,21 +1,29 @@
-import { Routes, Route } from 'react-router';
+import { Routes, Route, Link } from 'react-router';
 
 import Login from '../pages/login/Login.jsx';
 import Catalogue from '../pages/catalogue/Catalogue.jsx';
 import Details from '../pages/fiche-produit/Details.jsx';
 import Panier from '../pages/panier/Panier.jsx';
 
-function AppRouter() {
-
+function NotFound() {
     return (
-        <>
-            <Routes>
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Catalogue />} />
-                <Route path="/details/:id" element={<Details />} />
-                <Route path="/panier" element={<Panier />} />
-            </Routes>
-        </>
+        <main className="not-found">
+            <h1>Page introuvable</h1>
+            <p>Cette page n’existe pas dans la démonstration GSB.</p>
+            <Link to="/">Retour au catalogue</Link>
+        </main>
+    );
+}
+
+function AppRouter() {
+    return (
+        <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Catalogue />} />
+            <Route path="/details/:id" element={<Details />} />
+            <Route path="/panier" element={<Panier />} />
+            <Route path="*" element={<NotFound />} />
+        </Routes>
     )
 }
 

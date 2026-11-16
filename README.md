@@ -1,16 +1,27 @@
-# React + Vite
+# GSB Web
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Projet de deuxième année de BTS SIO : maquette d'une boutique GSB destinée aux professionnels de santé.
 
-Currently, two official plugins are available:
+## Lancer le projet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Prérequis : Node.js et npm.
 
-## React Compiler
+```sh
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Les scripts `npm run lint` et `npm run build` permettent respectivement de lancer Oxlint et de produire la version de production.
 
-## Expanding the Oxlint configuration
+## Fonctionnalités de la maquette
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Parcourir, rechercher, filtrer, trier et paginer le catalogue local.
+- Consulter la fiche d'un produit et ajuster la quantité.
+- Ajouter et retirer des produits du panier, modifier les quantités et consulter les totaux HT/TTC.
+- Accéder à une page de connexion de démonstration.
+
+Le catalogue et le panier sont gérés côté navigateur. Le panier est conservé pendant la navigation, mais n'est pas enregistré après le rechargement de la page. Aucun service d'authentification, de paiement ou de commande n'est connecté : les données affichées sont fictives et la maquette ne permet pas de passer une commande réelle.
+
+## Publication
+
+Le workflow GitHub Actions `.github/workflows/deploy-pages.yml` vérifie, construit et publie le site GitHub Pages à chaque push sur la branche `ilyes-hamouchti-portfolio-completion`. L'application utilise le préfixe `/GSB_web/` et une page de repli pour prendre en charge les URL directes des fiches produit.

@@ -2,35 +2,34 @@ import { Link } from 'react-router';
 import './Header.css';
 import Logo from '../assets/logo-GSB.png';
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from '../context/useCart.js';
 
 function Header() {
+    const { nombreArticles } = useCart();
+
     return (
         <header className="site-header">
-            <div className="site-header__logo">
+            <Link className="site-header__logo" to="/" aria-label="GSB, accueil">
                 <img src={Logo} alt="" />
                 <h3>GSB</h3>
-            </div> 
+            </Link>
 
             <nav className="site-header__nav">
-                <Link className="site-header__home" to="/">
+                <Link className="site-header__link" to="/">
                     Catalogue
                 </Link>
-
-                <Link className="site-header__link" to="/commandes">
-                    Mes commandes
-                </Link>
-            
-                <Link className="site-header__link" to="/compte">
-                    Mon compte
+                <Link className="site-header__link" to="/login">
+                    Connexion
                 </Link>
             </nav>
 
             <div className="site-header__panier">
-                <p className="site-header__name">Dr. Camille Rivot</p>
                 <Link to="/panier" className="site-header__cart-link">
-                    <button className="site-header__right">
-                        <ShoppingCart color="#13a69f" /> Mon panier
-                    </button>
+                    <ShoppingCart aria-hidden="true" />
+                    <span>Mon panier</span>
+                    <span className="site-header__cart-count" aria-label={`${nombreArticles} article${nombreArticles > 1 ? 's' : ''}`}>
+                        {nombreArticles}
+                    </span>
                 </Link>
             </div>
         </header>
