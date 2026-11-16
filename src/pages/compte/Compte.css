@@ -1,0 +1,227 @@
+.account-page {
+  max-width: 1000px;
+  min-height: calc(100vh - 112px);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.account-page__heading {
+  margin-bottom: 1.25rem;
+}
+
+.account-page__heading h1 {
+  margin: 0;
+  color: #14283d;
+  font-size: 1.5rem;
+}
+
+.account-page__heading p {
+  margin: 0.35rem 0 0;
+  color: #6b7a8c;
+  font-size: 0.85rem;
+}
+
+.account-page__notice,
+.account-page__error,
+.account-page__status {
+  margin: 0 0 1rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.account-page__notice {
+  background: #eef7f6;
+  color: #286d69;
+}
+
+.account-page__error {
+  background: #fff3e0;
+  color: #704b16;
+}
+
+.account-page__status {
+  background: #e8f5e9;
+  color: #256029;
+}
+
+.account-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: start;
+  gap: 1rem;
+}
+
+.account-card {
+  padding: 1.25rem;
+  border: 1px solid #e3e8ee;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.account-card h2 {
+  margin: 0 0 1rem;
+  color: #14283d;
+  font-size: 1rem;
+}
+
+.account-card__description {
+  margin: -0.5rem 0 1rem;
+  color: #6b7a8c;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.account-form,
+.comment-form {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.account-form label,
+.comment-form label {
+  margin-top: 0.25rem;
+  color: #14283d;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.account-form input,
+.comment-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid #d5dde6;
+  border-radius: 7px;
+  background: #fff;
+  color: #14283d;
+  font: inherit;
+  font-size: 0.85rem;
+}
+
+.account-form input:focus,
+.comment-form textarea:focus {
+  border-color: #13a69f;
+  outline: 2px solid rgba(19, 166, 159, 0.18);
+}
+
+.comment-form textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.account-form__submit {
+  justify-self: start;
+  margin-top: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  border: 0;
+  border-radius: 7px;
+  background: #13a69f;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.account-form__submit:hover {
+  background: #0f8f89;
+}
+
+.comment-form__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.comment-form__footer span {
+  color: #6b7a8c;
+  font-size: 0.75rem;
+}
+
+.account-comments__empty {
+  margin: 1rem 0 0;
+  color: #6b7a8c;
+  font-size: 0.8rem;
+}
+
+.account-comments {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.account-comment {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.8rem;
+  border: 1px solid #eef1f5;
+  border-radius: 8px;
+  background: #fafbfd;
+}
+
+.account-comment time {
+  color: #6b7a8c;
+  font-size: 0.7rem;
+}
+
+.account-comment p {
+  margin: 0.35rem 0 0;
+  color: #14283d;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.account-comment__delete {
+  display: grid;
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #ad3b3b;
+  cursor: pointer;
+}
+
+.account-comment__delete:hover {
+  background: #fff0f0;
+}
+
+.account-shortcuts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.account-shortcuts a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e3e8ee;
+  border-radius: 8px;
+  background: #fff;
+  color: #0f8f89;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.account-shortcuts a:hover {
+  background: #eef7f6;
+}
+
+@media (max-width: 760px) {
+  .account-page__grid {
+    grid-template-columns: 1fr;
+  }
+}

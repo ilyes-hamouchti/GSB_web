@@ -5,6 +5,7 @@ import ProductCard from '../../components/ProductCard.jsx';
 import { produits } from '../../data/produits.js';
 import Header from '../../components/Header.jsx';
 import Footer from '../../components/Footer.jsx';
+import { useCart } from '../../context/useCart.js';
 
 const CATEGORIES = ['Tous', 'Antalgiques', 'Antibiotiques', 'Anti-inflammatoires', 'Pneumologie', 'Cardiologie'];
 
@@ -16,6 +17,7 @@ function Catalogue() {
     const [recherche, setRecherche] = useState('');
     const [tri, setTri] = useState('nom-asc');
     const [page, setPage] = useState(1);
+    const { ajouterProduit } = useCart();
 
     // Quand un filtre change, on mémorise sa valeur et on revient à la page 1
     function changerCategorie(valeur) {
@@ -116,12 +118,8 @@ function Catalogue() {
                 {produitsAffiches.map((p) => (
                     <ProductCard
                         key={p.id}
-                        nom={p.nom}
-                        categorie={p.categorie}
-                        description={p.description}
-                        prixHT={p.prixHT}
-                        onAjouter={() => console.log('Ajouté :', p.nom)}
-                        onDetails={() => console.log('Détails :', p.nom)}
+                        produit={p}
+                        onAjouter={() => ajouterProduit(p)}
                     />
                 ))}
             </div>

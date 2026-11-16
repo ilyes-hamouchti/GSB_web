@@ -1,9 +1,11 @@
 import { Pill } from 'lucide-react';
+import { Link } from 'react-router';
 import './ProductCard.css';
 
 const TVA = 0.021; // taux de TVA des médicaments remboursables
 
-function ProductCard({ nom, categorie, description, prixHT, image, onAjouter, onDetails }) {
+function ProductCard({ produit, onAjouter }) {
+    const { id, nom, categorie, description, prixHT, image } = produit;
     const prixTTC = prixHT * (1 + TVA);
 
     return (
@@ -31,11 +33,9 @@ function ProductCard({ nom, categorie, description, prixHT, image, onAjouter, on
                     <button type="button" className="product-card__add" onClick={onAjouter}>
                         Ajouter au panier
                     </button>
-                    <a href="details" className="product-card__details-link">
-                        <button type="button" className="product-card__details" onClick={onDetails}>
-                            Détails
-                        </button>
-                    </a>
+                    <Link className="product-card__details" to={`/details/${id}`}>
+                        Détails
+                    </Link>
                 </div>
             </div>
         </article>
