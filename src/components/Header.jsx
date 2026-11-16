@@ -21,6 +21,9 @@ function Header() {
                 <Link className="site-header__link" to="/commandes">
                     Mes commandes
                 </Link>
+                <Link className="site-header__link" to="/compte">
+                    Mon compte
+                </Link>
                 <Link className="site-header__link" to="/login">
                     Connexion
                 </Link>

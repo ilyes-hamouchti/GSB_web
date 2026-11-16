@@ -5,6 +5,7 @@ import Catalogue from '../pages/catalogue/Catalogue.jsx';
 import Details from '../pages/fiche-produit/Details.jsx';
 import Panier from '../pages/panier/Panier.jsx';
 import Commandes from '../pages/commandes/Commandes.jsx';
+import Compte from '../pages/compte/Compte.jsx';
 
 function NotFound() {
     return (
@@ -24,6 +25,7 @@ function AppRouter() {
             <Route path="/details/:id" element={<Details />} />
             <Route path="/panier" element={<Panier />} />
             <Route path="/commandes" element={<Commandes />} />
+            <Route path="/compte" element={<Compte />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
     )

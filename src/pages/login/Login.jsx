@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router';
 import './Login.css'
 import Logo from '../../assets/logo-GSB.png';
 import { ClipboardList, ShieldCheck, Package, ArrowRight } from 'lucide-react';
@@ -70,7 +71,8 @@ function Login() {
 
                         {message && <p className="login-status" role="status">{message}</p>}
                         <p className="login-info">
-                            Démonstration : aucun compte n’est créé et aucune commande réelle n’est passée.
+                            Démonstration : aucun compte réel n’est connecté. Vous pouvez consulter les informations
+                            et commentaires locaux sur la page <Link to="/compte">Mon compte</Link>.
                         </p>
                     </div>
                 </div>
